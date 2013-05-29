@@ -194,7 +194,17 @@ class PHPMailer_Email
 			$this->_phpm->addAddress($to);
 		}
 
-		// cc/bcc
+		// cc
+		foreach($this->_recipients['cc'] as $cc)
+		{
+			$this->_phpm->addCC($cc);
+		}
+
+		// bcc
+		foreach($this->_recipients['bcc'] as $bcc)
+		{
+			$this->_phpm->addBCC($bcc);
+		}
 
 		// Content
 		$this->_phpm->Body = $this->_message['body_html'];
